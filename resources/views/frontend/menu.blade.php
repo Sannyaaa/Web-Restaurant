@@ -192,10 +192,16 @@
                             <article class="p-6 text-base rounded-lg shadow-lg border dark:bg-gray-900 mb-8">
                                 <footer class="flex justify-between items-center mb-2">
                                     <div class="flex items-center">
-                                        <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold"><img
-                                                class="mr-2 w-6 h-6 rounded-full"
-                                                src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
-                                                alt="Michael Gough">{{ $review->user->name }}</p>
+                                        @if (Auth::user()->avatar)
+                                            <img class="w-8 h-8 rounded-full" src="{{ Storage::url(Auth::user()->avatar) }}" alt="user photo">
+                                        @else
+                                            <div class="w-8 h-8 rounded-full flex items-center justify-center text-slate-800">
+                                                <i class="fa-solid fa-user my-auto"></i>
+                                            </div>
+                                        @endif
+                                        <p class="inline-flex items-center mx-3 text-sm text-gray-900 dark:text-white font-semibold">
+                                            
+                                            {{ $review->user->name }}</p>
                                         <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-08"
                                                 title="February 8th, 2022">{{ $review->created_at->format('j F Y') }}</time></p>
                                     </div>

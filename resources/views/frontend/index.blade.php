@@ -327,7 +327,13 @@
                                             <div class="keen-slider__slide shadow-lg ">
                                                 <div class="swiper-slide group hover:bg-yellow-300 bg-white shadow-xl border-solid border-4 border-slate-800 rounded-2xl p-6 transition-all duration-500 hover:shadow-xl">
                                                     <div class="flex items-center gap-5 mb-5 sm:mb-5">
-                                                        <img class="rounded-full border-white border-4 h-14 w-14" src="{{ $feedback->user->image != null ? Storage::url($feedback->user->image) : 'https://pagedone.io/asset/uploads/1696229969.png' }}" alt="avatar">
+                                                        @if (Auth::user()->avatar)
+                                                            <img class="w-10 h-10 rounded-full" src="{{ Storage::url(Auth::user()->avatar) }}" alt="user photo">
+                                                        @else
+                                                            <div class="w-10 h-10 rounded-full flex items-center justify-center text-slate-800">
+                                                                <i class="fa-solid fa-user my-auto"></i>
+                                                            </div>
+                                                        @endif
                                                         <div class="grid gap-1">
                                                             <h5 class="text-slate-800 font-semibold transition-all duration-500  ">{{ $feedback->name }}</h5>
                                                             <span class="text-sm leading-6 text-gray-500">{{ $feedback->email }}</span>
