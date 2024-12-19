@@ -50,8 +50,9 @@ class FeedbackPolicy
     public function update(User $user, Feedback $feedback): bool
     {
         //
-
-        if($feedback->phone == $user->phone){
+        if($user->role == 'admin' ){
+            return true;
+        }elseif($feedback->phone == $user->phone){
             return true;
         }else{
             return false;

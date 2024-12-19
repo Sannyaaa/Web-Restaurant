@@ -1,4 +1,5 @@
 <aside  id="sidebar" class="fixed inset-y-0 flex-wrap items-center max-h-screen justify-between block w-full p-0 my-4 overflow-y-auto antialiased transition-transform duration-200 border-4 border-slate-800 -translate-x-full bg-white shadow-xl dark:shadow-none dark:bg-slate-850 max-w-72 ease-nav-brand z-990 xl:ml-6 rounded-2xl xl:left-0 xl:translate-x-0 scrollbar-hide" aria-expanded="false">
+  
   <div class="flex justify-center py-2">
     <i class="absolute top-0 right-0 p-4 opacity-50 cursor-pointer fas fa-times dark:text-white text-slate-400 xl:hidden" id="sidenavClose"></i>
     <a class="block px-8 py-6 mx-auto text-sm whitespace-nowrap dark:text-white text-slate-700" href="{{ route('index') }}" target="_blank">
@@ -165,7 +166,7 @@
           </a>
         </li>
 
-        <x-collapse id="role-collapse" title="Role" icon="fa-solid fa-user-gear" :active="request()->routeIs('role.*')">
+        {{-- <x-collapse id="role-collapse" title="Role" icon="fa-solid fa-user-gear" :active="request()->routeIs('role.*')">
             <ul class="pl-12 my-2">
                 <li class="py-2">
                     <a href="{{ route('role.index') }}" class=" dark:text-white ">All Role</a>
@@ -174,7 +175,7 @@
                     <a href="{{ route('role.create') }}" class=" dark:text-white ">Create Role</a>
                 </li>
             </ul>
-        </x-collapse>
+        </x-collapse> --}}
       @endcan
 
       <li class="w-full mt-4">

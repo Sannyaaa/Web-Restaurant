@@ -132,6 +132,28 @@ class UserController extends Controller
         return redirect()->back()->with('error', 'No orders selected.');
     }
 
+    public function create(){
+        $this->authorize('isAdmin');
+
+        return view('dashboard.user.create');
+    }
+
+    public function store(Request $request){
+        $this->authorize('isAdmin');
+
+        $data = $request->validate([
+            'name' =>'required|string|max:255',
+            'phone' =>'required|string|unique:users|max:15',
+            'email' =>'required|string|email|unique:users|max:255',
+            'role' =>'required|string|exists:roles,name',
+            'access' =>'required|string|in:yes,no',
+        ]);
+
+        User::create($data);
+
+        return redirect()->route('user.index')->with('success', 'User created successfully');
+    }
+
     public function edit(User $user){
 
         $this->authorize('isAdmin');

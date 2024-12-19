@@ -39,8 +39,8 @@
                                 </div>
 
                                 <div class="md:col-span-2">
-                                    <label for="image">Image <span class="text-rose-500">*</span></label>
-                                    <input type="file" name="image" id="image" class="h-12 pt-2 border-4 border-slate-900 mt-1 rounded-md py-5 px-4 w-full bg-gray-50" value="" placeholder="email@domain.com" />
+                                    <label for="image">Image (aspect ratio 1:1)<span class="text-rose-500">*</span></label>
+                                    <input type="file" name="image" id="image" class="h-12 pt-2 border-4 border-slate-900 mt-1 rounded-md py-5 px-4 w-full bg-gray-50" value="" placeholder="" />
                                     @error('image')
                                         <div class="my-4 py-2 px-6 bg-rose-200 rounded-lg">
                                             <div class="alert alert-success text-md text-rose-700">

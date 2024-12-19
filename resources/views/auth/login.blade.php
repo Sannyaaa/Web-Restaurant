@@ -28,7 +28,7 @@
                   @csrf
                   @method('POST')
                   <div class="mb-4">
-                    <input type="number" placeholder="Phone" name="phone" value="{{ old('phone') ?? '' }}" class="focus:shadow-primary-outline dark:bg-gray-950 dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease block w-full appearance-none rounded-lg border-4 border-solid border-slate-800 bg-white bg-clip-padding p-3 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-slate-900 focus:outline-none" />
+                    <input type="number" placeholder="Phone" name="phone" value="{{ old('phone') ?? '089123456789' }}" class="focus:shadow-primary-outline dark:bg-gray-950 dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease block w-full appearance-none rounded-lg border-4 border-solid border-slate-800 bg-white bg-clip-padding p-3 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-slate-900 focus:outline-none" />
                     @error('phone')
                         <div class="my-2 py-2 px-6 bg-rose-200 rounded-lg">
                             <div class="alert alert-success text-sm text-rose-700">
@@ -38,7 +38,7 @@
                     @enderror
                   </div>
                   <div class="mb-4">
-                    <input type="password" placeholder="Password" name="password" value="{{ old('password') ?? '' }}" class="focus:shadow-primary-outline dark:bg-gray-950 dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease block w-full appearance-none rounded-lg border-4 border-solid border-slate-800 bg-white bg-clip-padding p-3 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-slate-900 focus:outline-none" />
+                    <input type="password" placeholder="Password" name="password" value="{{ old('password') ?? 'password' }}" class="focus:shadow-primary-outline dark:bg-gray-950 dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease block w-full appearance-none rounded-lg border-4 border-solid border-slate-800 bg-white bg-clip-padding p-3 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-slate-900 focus:outline-none" />
                     @error('password')
                         <div class="my-2 py-2 px-6 bg-rose-200 rounded-lg">
                             <div class="alert alert-success text-sm text-rose-700">
@@ -60,7 +60,7 @@
                 </form>
               </div>
               <div class="border-black/12.5 rounded-b-2xl border-t-0 border-solid p-6 text-center pt-0 px-1 sm:px-6">
-                <form action="{{ route('login.process') }}" method="POST">
+                {{-- <form action="{{ route('login.process') }}" method="POST">
                   @csrf
                   @method('POST')
                   <input type="hidden" name="phone" value="08987964511">
@@ -68,7 +68,7 @@
                   <button class="font-semibold text-slate-800 hover:underline">
                     Login as Admin
                   </button>
-                </form>
+                </form> --}}
                 <br>
                 <span class="mx-auto mb-6 leading-normal text-sm">Don't have an account? <a href="{{ route('register') }}" class="font-semibold text-transparent bg-clip-text bg-gradient-to-tl from-blue-500 to-violet-500 hover:underline">Sign up</a></span>
                 <br>

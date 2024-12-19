@@ -22,7 +22,7 @@ class FrontendController extends Controller
 
         $categories = Category::where('status','yes')->get();
 
-        $feedbacks = Feedback::whereIn('rating',[5,4])->get();
+        $feedbacks = Feedback::where('is_show','yes')->get();
 
         return view('frontend.index',compact('menus','categories','feedbacks'));
     }
@@ -78,7 +78,7 @@ class FrontendController extends Controller
 
     public function detail_menu(Request $request, Menu $menu)
     {
-        $reviews = Review::where('menu_id',$menu->id)->get();
+        $reviews = Review::where('menu_id',$menu->id)->where('is_show','yes')->get();
 
         $total = 0;
         $count = $reviews->count();

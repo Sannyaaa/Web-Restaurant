@@ -3,7 +3,7 @@
 <nav class="bg-white dark:bg-slate-900 py-4 w-full z-20 top-0 start-0 border-b border-slate-200 dark:border-slate-600">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
   <a href="{{ route('index') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
-      <span class="self-center text-3xl font-semibold whitespace-nowrap dark:text-white font-one tracking-widest">RestoQu</span>
+      <span class="self-center text-3xl font-semibold whitespace-nowrap dark:text-white font-one tracking-wider">RestoQu</span>
   </a>
 
   <div class=" flex">

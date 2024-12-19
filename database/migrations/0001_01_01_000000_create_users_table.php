@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('role',['admin','service','kitchen','chef','user'])->default('user');
+            $table->enum('role',['admin','service','kitchen','cashier','user'])->default('user');
             $table->string('otp');
             $table->enum('access',['yes','no']);
             $table->rememberToken();

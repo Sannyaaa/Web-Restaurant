@@ -20,16 +20,16 @@
                     </div>
                     
                     <div class="relative overflow-x-auto">
-                        <form action="{{ route('user.update',$user->id) }}" method="POST">
+                        <form action="{{ route('user.store') }}" method="POST">
                             @csrf
-                            @method('PUT')
+                            @method('POST')
                             <div class="lg:col-span-2">
                                 <div class="flex w-full gap-4 gap-y-2 text-sm grid-cols-3 md:grid-cols-5">
 
                                 <div class="w-1/2">
                                     <div class="md:col-span-5">
                                         <label for="name">Name</label>
-                                        <input type="text" name="name" id="name" disabled class="h-10 border-4 border-slate-900 mt-1 rounded-md py-5 px-4 w-full bg-gray-50" value="{{ $user->name }}" />
+                                        <input type="text" name="name" id="name" class="h-10 border-4 border-slate-900 mt-1 rounded-md py-5 px-4 w-full bg-gray-50" value="{{ old('name') }}" />
                                         @error('name')
                                             <div class="my-4 py-3 px-6 bg-rose-200 rounded-lg">
                                                 <div class="alert alert-success text-md text-rose-700">
@@ -41,7 +41,7 @@
 
                                     <div class="md:col-span-5 mt-3">
                                         <label for="phone">phone</label>
-                                        <input type="text" name="phone" id="phone" disabled class="h-10 border-4 border-slate-900 mt-1 rounded-md py-5 px-4 w-full bg-gray-50" value="{{ $user->phone }}" />
+                                        <input type="text" name="phone" id="phone" class="h-10 border-4 border-slate-900 mt-1 rounded-md py-5 px-4 w-full bg-gray-50" value="{{ old('phone') }}" />
                                         @error('phone')
                                             <div class="my-4 py-3 px-6 bg-rose-200 rounded-lg">
                                                 <div class="alert alert-success text-md text-rose-700">
@@ -59,10 +59,11 @@
                                             <div class="">
                                                 <select id="role" name="role" class="bg-gray-50 border-4 border-slate-800 text-gray-900 text-sm rounded-lg mt-1 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                                     {{-- @forelse ($roles as $role)
-                                                        <option value="{{ $role->name }}" {{ $user->role == $role->name ? 'selected' : '' }}>{{ $role->name }}</option>
+                                                        <option value="{{ $role->name }}" {{ old('role') == $role->name ? 'selected' : '' }}>{{ $role->name }}</option>
                                                     @empty
                                                         <option >belum ada role</option>
                                                     @endforelse --}}
+                                                    <option value="">pilih role</option>
                                                     <option value="admin">admin</option>
                                                     <option value="cashier">cashier</option>
                                                     <option value="service">service</option>
@@ -84,8 +85,8 @@
                                             <label for="access">Edit Access</label>
                                             <div class="">
                                                 <select id="access" name="access" class="bg-gray-50 border-4 border-slate-800 text-gray-900 text-sm rounded-lg mt-1 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                                    <option value="yes" {{ $user->access == 'yes' ? 'selected' : '' }}>Yes</option>
-                                                    <option value="no" {{ $user->access == 'no' ? 'selected' : '' }}>No</option>
+                                                    <option value="yes" {{ old('access') == 'yes' ? 'selected' : '' }}>Yes</option>
+                                                    <option value="no" {{ old('access') == 'no' ? 'selected' : '' }}>No</option>
                                                 </select>
                                             </div>
                                         </div>

@@ -77,17 +77,19 @@
                                 @endcan
                             </div>
                         </div>
-                        <div>
-                            <form action="{{ route('import-order') }}" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <div>
-                                    <button type="button" id="chooseFileButton" class="w-full whitespace-nowrap rounded-lg text-white bg-slate-800 hover:bg-slate-900 px-8 py-3 text-lg font-bold shadow-md transition-all">
-                                        Import
-                                    </button>
-                                    <input type="file" name="file" id="file" class="hidden" required onchange="this.form.submit()">
-                                </div>
-                            </form>
-                        </div>
+                        @can('isAdmin')
+                            <div>
+                                <form action="{{ route('import-order') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div>
+                                        <button type="button" id="chooseFileButton" class="w-full whitespace-nowrap rounded-lg text-white bg-slate-800 hover:bg-slate-900 px-8 py-3 text-lg font-bold shadow-md transition-all">
+                                            Import
+                                        </button>
+                                        <input type="file" name="file" id="file" class="hidden" required onchange="this.form.submit()">
+                                    </div>
+                                </form>
+                            </div>
+                        @endcan
                       </div>
                     </div>
 

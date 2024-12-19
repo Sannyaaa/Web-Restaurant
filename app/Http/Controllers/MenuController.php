@@ -208,7 +208,12 @@ class MenuController extends Controller
         ]);
 
         if($request->hasFile('image')){
-            $data['image'] = $request->file('image')->store('manu','public');
+            $data['image'] = $request->file('image')->store('menu','public');
+            if($menu->image) {
+                Storage::disk('public')->delete($menu->image);
+            }
+        } else {
+            $data['image'] = $menu->image;
         }
 
         $data['slug'] = Str::slug($data['name']);
@@ -224,6 +229,10 @@ class MenuController extends Controller
     {
         //
         $this->authorize('isKitchen');
+
+        if($menu->image) {
+            Storage::disk('public')->delete($menu->image);
+        }
 
         $menu->delete();
 

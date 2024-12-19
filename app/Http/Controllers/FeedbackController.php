@@ -37,12 +37,14 @@ class FeedbackController extends Controller
                     $deleteRoute = route('feedback.destroy', $item->id);
                     
                     $actions = '';
-                    // if(auth()->user()->can('update', $item)) {
-                    //     $actions .= '<a href="'.$editRoute.'" class="font-lg text-green-600 dark:text-green-500 hover:underline px-2">Edit</a>';
-                    // }
+                    if(auth()->user()->can('update', $item)) {
+                        $actions .= '<a href="'.$editRoute.'" class="font-lg text-green-600 dark:text-green-500 hover:underline px-2">Edit</a>';
+                    }
                     // $actions .= '<a href="'.$showRoute.'" class="font-lg text-blue-600 dark:text-blue-500 hover:underline px-2">Show</a>';
                     if(auth()->user()->can('delete', $item)) {
-                        $actions .= '<form action="'.$deleteRoute.'" method="POST" style="display:inline;" onsubmit="return confirm(\'Apakah Anda yakin ingin menghapus data ini?\')">
+                        $actions .= '
+                                    
+                                    <form action="'.$deleteRoute.'" method="POST" style="display:inline;" onsubmit="return confirm(\'Apakah Anda yakin ingin menghapus data ini?\')">
                                         '.method_field('DELETE').'
                                         '.csrf_field().'
                                         <button type="submit" class="font-lg text-red-600 dark:text-red-500 hover:underline px-2 py-2">Hapus</button>
@@ -128,6 +130,7 @@ class FeedbackController extends Controller
             'phone' => ['required','string','max:255'],
             // 'email' => ['required', 'email','max:255'],
             'message' => ['required','string','min:10'],
+            'is_show' => ['required'],
             'rating' => ['required', 'integer','min:1','max:5'],
         ]);
 
@@ -169,6 +172,7 @@ class FeedbackController extends Controller
             'name' => ['required','string','max:255'],
             'phone' => ['required','string','max:255'],
             'message' => ['required','string','min:10'],
+            'is_show' => ['required'],
             'rating' => ['required', 'integer','min:1','max:5'],
         ]);
 

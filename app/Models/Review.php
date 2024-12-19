@@ -14,6 +14,7 @@ class Review extends Model
         'menu_id',
         'order_item_id',
         'rating',
+        'is_show',
         'comment',
     ];
 

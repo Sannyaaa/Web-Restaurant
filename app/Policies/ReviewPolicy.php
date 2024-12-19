@@ -53,7 +53,13 @@ class ReviewPolicy
     {
         //
 
-        return $user->id == $review->user_id;
+        if($user->role == 'admin'){
+            return true;
+        }elseif($user->id == $review->user_id){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /**

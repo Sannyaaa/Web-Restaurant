@@ -51,53 +51,67 @@
                 <div class="flex flex-row -mx-3">
                   <div class="flex-none w-full max-w-full px-3">
                     <div class="md:flex md:justify-between">
-                      <div>
-                        <h3 class="mb-2 text-3xl font-bold text-slate-800 dark:text-white">
-                            USER
-                        </h3>
-                        <p class="mb-0 dark:text-white dark:opacity-60">
-                            <span class="text-sm font-bold leading-normal text-slate-700"></span>
-                            User List
-                        </p>
+                        <div>
+                            <h3 class="mb-2 text-3xl font-bold text-slate-800 dark:text-white">
+                                USER
+                            </h3>
+                            <p class="mb-0 dark:text-white dark:opacity-60">
+                                <span class="text-sm font-bold leading-normal text-slate-700"></span>
+                                User List
+                            </p>
 
                         {{-- @foreach ($mostOrderedMenu as $item)
                             {{ $item->menu->name }}<br>
                         @endforeach --}}
 
-                      </div>
-                      <div class="flex items-center gap-4 mb-6 mt-2 ms-auto">
-                            <div class="flex text-base font-medium space-x-6">
-                                <div>
-                                    <label for="role">Search by Role</label>
-                                    <div class="w-34 lg:w-64">
-                                        <select id="role" name="role" class="bg-gray-50 border-4 border-slate-800 text-gray-900 text-sm rounded-lg mt-1 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                            <option value="">ALL</option>
-                                            @foreach ($roles as $role)
-                                                <option value="{{ $role->name }}">{{ $role->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <label for="access">Search by Access</label>
-                                    <div class="w-34 lg:w-64">
-                                        <select id="access" name="access" class="bg-gray-50 border-4 border-slate-800 text-gray-900 text-sm rounded-lg mt-1 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                            <option value="">ALL</option>
-                                            <option value="yes">Yes</option>
-                                            <option value="no">No</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
 
+                        <div>
                             <div class="flex gap-5 mt-5 ms-auto">
                                 <div class="inline-flex items-end relative ms-auto">
                                     {{-- <input type="hidden" name="total_price" value="{{ $total_price }}"> --}}
-                                    <button id="filter" class="w-full rounded-lg bg-yellow-300 hover:bg-yellow-400 px-8 py-3 text-lg font-bold text-slate-800 shadow-md transition-all">Filter</button>
+                                    <a href="{{ route('export-user') }}" class="w-full rounded-lg bg-yellow-300 hover:bg-yellow-400 px-8 py-3 text-lg font-bold text-slate-800 shadow-md transition-all">Excel</a>
                                 </div>
                                 <div class="flex relative h-fit">
                                     {{-- <input type="hidden" name="total_price" value="{{ $total_price }}"> --}}
-                                    <a href="{{ route('export-user') }}" class="w-full rounded-lg text-white bg-slate-800 hover:bg-slate-900 px-8 py-3 text-lg font-bold shadow-md ">Excel</a>
+                                    <a href="{{ route('user.create') }}" class="w-full rounded-lg text-white bg-slate-800 hover:bg-slate-900 px-8 py-3 text-lg font-bold shadow-md ">New User</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 mb-6 mt-2 ms-auto">
+                                <div class="flex text-base font-medium space-x-6">
+                                    <div>
+                                        <label for="role">Search by Role</label>
+                                        <div class="w-34 lg:w-64">
+                                            <select id="role" name="role" class="bg-gray-50 border-4 border-slate-800 text-gray-900 text-sm rounded-lg mt-1 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                <option value="">ALL</option>
+                                                {{-- @foreach ($roles as $role)
+                                                    <option value="{{ $role->name }}">{{ $role->name }}</option>
+                                                @endforeach --}}
+                                                <option value="admin">admin</option>
+                                                <option value="cashier">cashier</option>
+                                                <option value="service">service</option>
+                                                <option value="kitchen">kitchen</option>
+                                                <option value="user">user</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        <label for="access">Search by Access</label>
+                                        <div class="w-34 lg:w-64">
+                                            <select id="access" name="access" class="bg-gray-50 border-4 border-slate-800 text-gray-900 text-sm rounded-lg mt-1 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                <option value="">ALL</option>
+                                                <option value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex gap-5 mt-5 ms-auto">
+                                    <div class="inline-flex items-end relative ms-auto">
+                                        {{-- <input type="hidden" name="total_price" value="{{ $total_price }}"> --}}
+                                        <button id="filter" class="w-full rounded-lg bg-yellow-300 hover:bg-yellow-400 px-8 py-3 text-lg font-bold text-slate-800 shadow-md transition-all">Filter</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

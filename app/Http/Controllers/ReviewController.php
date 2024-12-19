@@ -43,9 +43,9 @@ class ReviewController extends Controller
                     $deleteRoute = route('review.destroy', $review->id);
                     
                     $actions = '';
-                    // if(auth()->user()->can('update', $review)) {
-                    //     $actions .= '<a href="'.$editRoute.'" class="font-lg text-green-600 dark:text-green-500 hover:underline px-2">Edit</a>';
-                    // }
+                    if(auth()->user()->can('update', $review)) {
+                        $actions .= '<a href="'.$editRoute.'" class="font-lg text-green-600 dark:text-green-500 hover:underline px-2">Edit</a>';
+                    }
                     // $actions .= '<a href="'.$showRoute.'" class="font-lg text-blue-600 dark:text-blue-500 hover:underline px-2">Show</a>';
                     if(auth()->user()->can('delete', $review)) {
                         $actions .= '<form action="'.$deleteRoute.'" method="POST" style="display:inline;" onsubmit="return confirm(\'Apakah Anda yakin ingin menghapus data ini?\')">
@@ -143,6 +143,7 @@ class ReviewController extends Controller
             'order_id' => 'required|exists:orders,id',
             'order_item_id' => 'required|exists:order_items,id',
             'comment' =>'nullable|max:255',
+            'is_show' =>'required|max:255',
             'rating' =>'required|numeric|between:1,5',
         ]);
 
@@ -190,6 +191,7 @@ class ReviewController extends Controller
 
         $validated = $request->validate([
             'comment' =>'nullable|max:255',
+            'is_show' =>'required|max:255',
             'rating' =>'required|numeric|between:1,5',
         ]);
 

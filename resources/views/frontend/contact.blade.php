@@ -132,25 +132,6 @@
                 </div>
             </div> --}}
 
-            <div class="mt-40">
-                <div class="text-center w-2/5 mx-auto">
-                    
-
-                </div>
-            </div>
-
-            <div class="flex mx-40 mt-40">
-                <div class="w-1/2">
-                    <div class="">
-
-
-                    </div>
-                </div>
-                <div class="w-1/2">
-                    
-                </div>
-            </div>
-
             <div class="flex">
                 
             </div>

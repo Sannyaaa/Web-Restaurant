@@ -14,7 +14,7 @@
             <div class="w-full md:flex py-16 lg:py-20 px-10 md:px-14 lg:px-20 xl:px-32 space-y-10">
                 <div class="w-4/5 md:w-4/5 flex justify-center items-center pe-10">
                     <div class="text-left w-full">
-                        <h1 class="text-5xl font-bold text-slate-800 md:text-6xl lg:text-8xl font-one">Welcome to <span class="text-white">Our </span>Cozy
+                        <h1 class="text-6xl font-bold text-slate-800 lg:text-8xl font-one">Welcome to <span class="text-white">Our </span>Cozy
                              <span class="text-white">Restaurant</span></h1>
 
                         <p class="mt-6 text-lg  text-gray-600">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua. Qui irure qui lorem cupidatat commodo.</p>
@@ -39,7 +39,7 @@
 
             <div class="mt-6">
                 <div class="text-center w-3/5 md:w-2/5 mx-auto">
-                    <h1 class="text-4xl font-bold  text-slate-800 md:text-5xl lg:text-6xl font-one">Our <span class="text-yellow-300">Feature</span></h1>
+                    <h1 class="text-4xl font-bold  text-slate-800 md:text-5xl lg:text-6xl font-one">Our <span class="text--300">Feature</span></h1>
 
                     <p class="mt-6 text-lg  text-gray-600">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
                 </div>
@@ -88,18 +88,18 @@
 
                     <p class="mt-6 text-lg  text-gray-600">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
                 </div>
-                <div class="my-12 px-4 sm:px-16 lg:px-32">
+                <div class="my-12 px-4 sm:px-16 lg:px-40">
                     <div class="flex justify-center px-10">
                         <div class="w-full flex flex-wrap justify-center">
                             @forelse ($categories as $category)
-                                <div class="p-3 md:p-4 max-w-sm bg-opacity-100">
-                            <a href="{{ route('list-menu-category',$category->id) }}" class="flex flex-col justify-center items-center">
-                                <div class="rounded-full border-8 {{ isset($selectedCategory) && $selectedCategory->id == $category->id ? 'border-slate-800' : 'border-yellow-200' }}  group-hover:border-yellow-100 overflow-hidden shadow-lg hover:shadow-2xl">
-                                    <img class="w-full" src="{{ Storage::url($category->image) }}" alt="category image" />
+                                <div class="p-3 md:p-4 bg-opacity-100">
+                                    <a href="{{ route('list-menu-category',$category->id) }}" class="flex flex-col justify-center items-center">
+                                        <div class="rounded-full border-8 {{ isset($selectedCategory) && $selectedCategory->id == $category->id ? 'border-slate-800' : 'border-yellow-200' }}  group-hover:border-yellow-100 overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+                                            <img class="w-28 h-auto aspect-square" src="{{ Storage::url($category->image) }}" alt="category image" />
+                                        </div>
+                                        <span class="text-base font-semibold px-6 py-3 rounded-full {{ isset($selectedCategory) && $selectedCategory->id == $category->id ? 'bg-slate-800 text-white' : 'bg-white' }} -mt-8 shadow-lg hover:shadow-2xl transition-all">{{ $category->name }}</span>
+                                    </a>
                                 </div>
-                                <span class="text-base px-6 py-3  rounded-full {{ isset($selectedCategory) && $selectedCategory->id == $category->id ? 'bg-slate-800 text-white font-semibold' : 'bg-white' }} -mt-8 shadow-lg hover:shadow-2xl transition-all">{{ $category->name }}</span>
-                            </a>
-                        </div>
                             @empty
                                 <span class="text-center">
                                     Belum ada product
@@ -261,143 +261,138 @@
                     </script>
 
                     <section class="bg-gray-50 mx-auto">
-                    <div class="mx-auto max-w-[1340px] px-4 py-12 sm:px-6 lg:me-0 lg:py-16 xl:py-24">
-                        <div class="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center lg:gap-16">
-                        <div class="max-w-2xl ltr:sm:text-left rtl:sm:text-right">
-                            <div class="px-12 sm:px-20 lg:px-0">
-                                <h2 class="text-4xl font-bold  text-slate-800 md:text-5xl lg:text-6xl font-one">
-                                    <span class="text-yellow-300">Testimonials</span> Our Customers
-                                </h2>
+                        <div class="mx-auto max-w-[1340px] px-4 py-12 sm:px-6 lg:me-0 lg:py-16 xl:py-24">
+                            <div class="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center lg:gap-16">
+                                <div class="max-w-2xl ltr:sm:text-left rtl:sm:text-right">
+                                    <div class="px-12 sm:px-20 lg:px-0">
+                                        <h2 class="text-4xl font-bold  text-slate-800 md:text-5xl lg:text-6xl font-one">
+                                            <span class="text-yellow-300">Testimonials</span> Our Customers
+                                        </h2>
 
-                                <p class="mt-4 text-gray-700">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas veritatis illo placeat
-                                harum porro optio fugit a culpa sunt id!
-                                </p>
+                                        <p class="mt-4 text-gray-700">
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas veritatis illo placeat
+                                        harum porro optio fugit a culpa sunt id!
+                                        </p>
+                                    </div>
+
+                                    <div class="hidden lg:mt-8 lg:flex lg:gap-4 p-3">
+                                    <button
+                                        aria-label="Previous slide"
+                                        id="keen-slider-previous-desktop"
+                                        class="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+                                    >
+                                        <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke-width="1.5"
+                                        stroke="currentColor"
+                                        class="size-5 rtl:rotate-180"
+                                        >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M15.75 19.5L8.25 12l7.5-7.5"
+                                        />
+                                        </svg>
+                                    </button>
+
+                                    <button
+                                        aria-label="Next slide"
+                                        id="keen-slider-next-desktop"
+                                        class="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+                                    >
+                                        <svg
+                                        class="size-5 rtl:rotate-180"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                        <path
+                                            d="M9 5l7 7-7 7"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                        />
+                                        </svg>
+                                    </button>
+                                    </div>
+                                </div>
+
+                                <div class="-mx-6 lg:col-span-2 lg:mx-0">
+                                    <div id="keen-slider" class="keen-slider p-6">
+
+                                        @forelse ($feedbacks as $feedback)
+                                            <div class="keen-slider__slide shadow-lg ">
+                                                <div class="swiper-slide group hover:bg-yellow-300 bg-white shadow-xl border-solid border-4 border-slate-800 rounded-2xl p-6 transition-all duration-500 hover:shadow-xl">
+                                                    <div class="flex items-center gap-5 mb-5 sm:mb-5">
+                                                        <img class="rounded-full border-white border-4 h-14 w-14" src="{{ $feedback->user->image != null ? Storage::url($feedback->user->image) : 'https://pagedone.io/asset/uploads/1696229969.png' }}" alt="avatar">
+                                                        <div class="grid gap-1">
+                                                            <h5 class="text-slate-800 font-semibold transition-all duration-500  ">{{ $feedback->name }}</h5>
+                                                            <span class="text-sm leading-6 text-gray-500">{{ $feedback->email }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="flex items-center mb-5 sm:mb-5 gap-2 text-slate-800 transition-all duration-500  ">
+                                                        @for ($i = 0;$i < $feedback->rating;$i++)
+                                                            <svg class="w-5 h-5" viewBox="0 0 18 17" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M8.10326 1.31699C8.47008 0.57374 9.52992 0.57374 9.89674 1.31699L11.7063 4.98347C11.8519 5.27862 12.1335 5.48319 12.4592 5.53051L16.5054 6.11846C17.3256 6.23765 17.6531 7.24562 17.0596 7.82416L14.1318 10.6781C13.8961 10.9079 13.7885 11.2389 13.8442 11.5632L14.5353 15.5931C14.6754 16.41 13.818 17.033 13.0844 16.6473L9.46534 14.7446C9.17402 14.5915 8.82598 14.5915 8.53466 14.7446L4.91562 16.6473C4.18199 17.033 3.32456 16.41 3.46467 15.5931L4.15585 11.5632C4.21148 11.2389 4.10393 10.9079 3.86825 10.6781L0.940384 7.82416C0.346867 7.24562 0.674378 6.23765 1.4946 6.11846L5.54081 5.53051C5.86652 5.48319 6.14808 5.27862 6.29374 4.98347L8.10326 1.31699Z"
+                                                                    fill="currentColor"></path>
+                                                            </svg>
+                                                        @endfor
+                                                    </div>
+                                                    <p
+                                                        class="text-md text-gray-700 leading-6 transition-all duration-500  group-hover:text-gray-800">
+                                                        {{ $feedback->message }}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        @empty
+                                            <span>Testimonial Not Found</span>
+                                        @endforelse
+                                        
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="hidden lg:mt-8 lg:flex lg:gap-4 p-3">
+                            <div class="mt-8 flex justify-center gap-4 lg:hidden">
                             <button
                                 aria-label="Previous slide"
-                                id="keen-slider-previous-desktop"
-                                class="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+                                id="keen-slider-previous"
+                                class="rounded-full border-4 border-slate-800 p-4 text-slate-800 transition hover:bg-yellow-300 hover:text-slate-800"
                             >
                                 <svg
-                                xmlns="http://www.w3.org/2000/svg"
+                                class="size-5 -rotate-180 transform"
                                 fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
                                 stroke="currentColor"
-                                class="size-5 rtl:rotate-180"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
                                 >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M15.75 19.5L8.25 12l7.5-7.5"
-                                />
+                                <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                                 </svg>
                             </button>
 
                             <button
                                 aria-label="Next slide"
-                                id="keen-slider-next-desktop"
-                                class="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+                                id="keen-slider-next"
+                                class="rounded-full border-4 border-slate-800 p-4 text-slate-800 transition hover:bg-yellow-300 hover:text-slate-800"
                             >
                                 <svg
-                                class="size-5 rtl:rotate-180"
+                                class="h-5 w-5"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg"
                                 >
-                                <path
-                                    d="M9 5l7 7-7 7"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                />
+                                <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                                 </svg>
                             </button>
                             </div>
                         </div>
-
-                        <div class="-mx-6 lg:col-span-2 lg:mx-0">
-                            <div id="keen-slider" class="keen-slider p-6">
-
-                                @forelse ($feedbacks as $feedback)
-                                    <div class="keen-slider__slide shadow-lg ">
-                                        <div class="swiper-slide group hover:bg-yellow-300 bg-white shadow-xl border-solid border-slate-800 rounded-2xl p-6 transition-all duration-500 hover:shadow-xl">
-                                            <div class="flex items-center gap-5 mb-5 sm:mb-5">
-                                                <img class="rounded-full border-white border-4 h-14 w-14" src="{{ $feedback->user->avatar ? Storage::url($feedback->user->avatar) : 'https://pagedone.io/asset/uploads/1696229969.png' }}" alt="avatar">
-                                                <div class="grid gap-1">
-                                                    <h5 class="text-slate-800 font-semibold transition-all duration-500  ">{{ $feedback->name }}</h5>
-                                                    <span class="text-sm leading-6 text-gray-500">{{ $feedback->email }}</span>
-                                                </div>
-                                            </div>
-                                            <div
-                                                class="flex items-center mb-5 sm:mb-5 gap-2 text-slate-800 transition-all duration-500  ">
-                                                @for ($i = 0;$i < $feedback->rating;$i++)
-                                                    <svg class="w-5 h-5" viewBox="0 0 18 17" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M8.10326 1.31699C8.47008 0.57374 9.52992 0.57374 9.89674 1.31699L11.7063 4.98347C11.8519 5.27862 12.1335 5.48319 12.4592 5.53051L16.5054 6.11846C17.3256 6.23765 17.6531 7.24562 17.0596 7.82416L14.1318 10.6781C13.8961 10.9079 13.7885 11.2389 13.8442 11.5632L14.5353 15.5931C14.6754 16.41 13.818 17.033 13.0844 16.6473L9.46534 14.7446C9.17402 14.5915 8.82598 14.5915 8.53466 14.7446L4.91562 16.6473C4.18199 17.033 3.32456 16.41 3.46467 15.5931L4.15585 11.5632C4.21148 11.2389 4.10393 10.9079 3.86825 10.6781L0.940384 7.82416C0.346867 7.24562 0.674378 6.23765 1.4946 6.11846L5.54081 5.53051C5.86652 5.48319 6.14808 5.27862 6.29374 4.98347L8.10326 1.31699Z"
-                                                            fill="currentColor"></path>
-                                                    </svg>
-                                                @endfor
-                                            </div>
-                                            <p
-                                                class="text-sm text-gray-500 leading-6 transition-all duration-500 min-h-24  group-hover:text-gray-800">
-                                                {{ $feedback->message }}
-                                            </p>
-
-                                        </div>
-                                    </div>
-                                @empty
-                                    <span>Testimonial Not Found</span>
-                                @endforelse
-                                
-                            </div>
-                        </div>
-                        </div>
-
-                        <div class="mt-8 flex justify-center gap-4 lg:hidden">
-                        <button
-                            aria-label="Previous slide"
-                            id="keen-slider-previous"
-                            class="rounded-full border-4 border-slate-800 p-4 text-slate-800 transition hover:bg-yellow-300 hover:text-slate-800"
-                        >
-                            <svg
-                            class="size-5 -rotate-180 transform"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                            >
-                            <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                            </svg>
-                        </button>
-
-                        <button
-                            aria-label="Next slide"
-                            id="keen-slider-next"
-                            class="rounded-full border-4 border-slate-800 p-4 text-slate-800 transition hover:bg-yellow-300 hover:text-slate-800"
-                        >
-                            <svg
-                            class="h-5 w-5"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                            >
-                            <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                            </svg>
-                        </button>
-                        </div>
-                    </div>
                     </section>
-            </div>
-
-            <div class="flex">
-                
             </div>
             
         </div>

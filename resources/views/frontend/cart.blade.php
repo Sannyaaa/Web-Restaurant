@@ -8,7 +8,7 @@
 
 @section('content')
     <section class="bg-zinc-50 antialiased dark:bg-gray-900  py-16">
-        <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
+        <div class="mx-auto max-w-screen-xl px-10 2xl:px-0">
             <h2 class="font-semibold text-gray-900 dark:text-white text-5xl font-one">Shopping Cart</h2>
 
             <div class="mt-6 sm:mt-8 md:gap-6 lg:flex lg:items-start xl:gap-8">
@@ -219,7 +219,7 @@
                             </div>
                         @endforeach
                     @else
-                        <span>Belum ada menu di keranjangmu. <a class="hover:underline text-yellow-300" href="{{ route('list-menu') }}">Explore Our Menu</a></span>    
+                        <span>Belum ada menu di keranjangmu. <a class="hover:underline text-yellow-400" href="{{ route('list-menu') }}">Explore Our Menu</a></span>    
                     @endif
 
 

@@ -9,7 +9,7 @@
                 <div class="w-full">
                     <div class="flex flex-col text-center items-center justify-center">
                         <h1 class="text-6xl font-bold tracking-tight text-slate-50 md:text-7xl font-one">Explore Our Menu</h1>
-                        <div class=" sm:w-1/2 mt-5">
+                        <div class=" lg:w-1/2 mt-5">
                             <form action="{{ route('list-menu') }}" method="GET" class="mx-auto flex gap-4">
                                 <!-- component -->
                                 <div class="flex flex-col p-2 py-6 m-h-screen w-full">
@@ -18,7 +18,7 @@
                                         <input name="search" class="font-bold uppercase rounded-full w-full py-4 pl-4 text-gray-700 bg-slate-50 leading-tight focus:outline-none focus:border-yellow-300 focus:ring-yellow-300 focus:ring-2 focus:shadow-outline lg:text-sm text-xs" type="text" placeholder="Search">
 
                                         <button type="submit" class="">
-                                            <div class="bg-slate-800 p-3 hover:bg-yellow-400 group cursor-pointer border-slate-800 ms-3 rounded-full">
+                                            <div class="bg-slate-800 p-3 hover:bg-yellow-400 group cursor-pointer border-slate-800 transition-all duration-200 ms-3 rounded-full">
 
                                                 <svg class="w-7 h-7 text-white group-hover:text-slate-800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                                     <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
@@ -44,18 +44,18 @@
                     <div class="p-3 md:p-4 max-w-sm bg-opacity-100">
                         <a href="{{ route('list-menu') }}" class="flex flex-col justify-center items-center">
                             <div class="rounded-full border-8 {{ empty($selectedCategory) ? 'border-slate-800' : 'border-yellow-200' }}  group-hover:border-yellow-100 overflow-hidden shadow-lg hover:shadow-2xl">
-                                <div class="h-28 w-28 flex items-center bg-slate-100 justify-center font-bold">ALL</div>
+                                <div class="h-28 w-28 flex items-center bg-slate-100 justify-center font-semibold">ALL</div>
                             </div>
-                            <span class="text-base px-6 py-3  rounded-full {{ empty($selectedCategory) ? 'bg-slate-800 text-white font-semibold' : 'bg-white' }} -mt-8 shadow-lg hover:shadow-2xl transition-all">All</span>
+                            <span class="text-base font-semibold px-6 py-3  rounded-full {{ empty($selectedCategory) ? 'bg-slate-800 text-white' : 'bg-white' }} -mt-8 shadow-lg hover:shadow-2xl transition-all">All</span>
                         </a>
                     </div>
                     @forelse ($categories as $category)
-                        <div class="p-3 md:p-4 max-w-sm bg-opacity-100">
+                        <div class="p-3 md:p-4 bg-opacity-100">
                             <a href="{{ route('list-menu-category',$category->id) }}" class="flex flex-col justify-center items-center">
                                 <div class="rounded-full border-8 {{ isset($selectedCategory) && $selectedCategory->id == $category->id ? 'border-slate-800' : 'border-yellow-200' }}  group-hover:border-yellow-100 overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-                                    <img class="w-full" src="{{ Storage::url($category->image) }}" alt="category image" />
+                                    <img class="w-28 h-auto aspect-square" src="{{ Storage::url($category->image) }}" alt="category image" />
                                 </div>
-                                <span class="text-base px-6 py-3 rounded-full {{ isset($selectedCategory) && $selectedCategory->id == $category->id ? 'bg-slate-800 text-white font-semibold' : 'bg-white' }} -mt-8 shadow-lg hover:shadow-2xl transition-all">{{ $category->name }}</span>
+                                <span class="text-base font-semibold px-6 py-3 rounded-full {{ isset($selectedCategory) && $selectedCategory->id == $category->id ? 'bg-slate-800 text-white' : 'bg-white' }} -mt-8 shadow-lg hover:shadow-2xl transition-all">{{ $category->name }}</span>
                             </a>
                         </div>
                     @empty
@@ -66,13 +66,13 @@
                 </div>
             </div>
 
-            <div class="mt-8 px-12 md:px-32">
+            <div class="mt-8 px-0 md:px-16 lg:px-32">
                 <div class="w-full flex flex-wrap justify-center">
                     <!-- Menampilkan Menu -->
                     @forelse ($menus as $menu)
-                        <div class="p-3 md:p-4 min-w-xs w-auto">
+                        <div class="p-3 md:p-4 max-w-sm sm:max-w-xs lg:max-w-sm">
                             <a href="{{ route('detail-menu',$menu->id) }}">
-                                <div class="w-full max-w-sm bg-white group border-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 dark:bg-gray-800 dark:border-gray-700 overflow-hidden">
+                                <div class="w-full bg-white group border-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 dark:bg-gray-800 dark:border-gray-700 overflow-hidden">
                                     <div class="relative aspect-video overflow-hidden bg-cover align-middle p-2">
                                         <img class="object-cover object-center w-full h-full rounded-md" src="{{ Storage::url($menu->image) }}" alt="menu image" />
                                     </div>
@@ -146,9 +146,9 @@
                 </div>
             </div> --}}
 
-            <div class="mt-40">
+            <div class="mt-32">
                 <div class="text-center w-2/5 mx-auto">
-                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Recomended Menus</h1>
+                    <h1 class="text-4xl font-bold font-one tracking-tight text-gray-900 sm:text-6xl">Recomended <span class="text-yellow-300">Menus</span></h1>
 
                     <p class="mt-6 text-lg leading-8 text-gray-600">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
                 </div>

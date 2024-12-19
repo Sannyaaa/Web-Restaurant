@@ -118,9 +118,20 @@ class CategoryController extends Controller
             'name' =>'required|string|max:255',
             'description' =>'required|string|min:5',
         ]);
+
         if($request->hasFile('image')){
             $data['image'] = $request->file('image')->store('category','public');
         }
+
+        if($request->hasFile('image')){
+            $data['image'] = $request->file('image')->store('category','public');
+            if($category->image) {
+                Storage::disk('public')->delete($category->image);
+            }
+        } else {
+            $data['image'] = $category->image;
+        }
+
         $category->update($data);
         return redirect()->route('category.index')->with('success', 'Category updated successfully.');
     }
@@ -132,6 +143,10 @@ class CategoryController extends Controller
     {
         //
         $this->authorize('isKitchen');
+
+        if($category->image) {
+            Storage::disk('public')->delete($category->image);
+        }
 
         $category->delete();
 
