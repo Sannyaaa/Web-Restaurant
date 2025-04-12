@@ -52,10 +52,10 @@
         @include('frontend.layout.header')
 
         @if (session('cart'))
-            <div class="fixed z-50 bottom-10 right-10 flex items-center">
+            <div class="fixed z-50 bottom-5 md:bottom-10 right-5 md:right-10 flex items-center">
                 <div class="-mr-6">
                     <div class="flex justify-center items-center bg-white shadow-lg px-6 py-3 rounded-xl">
-                        <div class="font-semibold text-lg mr-6">
+                        <div class="font-semibold text-base md:text-lg mr-6">
                             {{ array_sum(array_column(session('cart'), 'quantity')) }} item in your cart
                         </div>
                     </div>
@@ -63,10 +63,10 @@
                 <div>
                     <a href="{{ route('cart.index') }}">
                         <div class="flex justify-center items-center rounded-full relative">
-                            <div class="bg-yellow-300 hover:bg-yellow-400 text-slate-800 p-6 shadow-xl aspect-square text-xl items-center justify-center rounded-full relative inline-flex">
+                            <div class="bg-yellow-300 hover:bg-yellow-400 text-slate-800 p-5 md:p-6 shadow-xl aspect-square text-xl items-center justify-center rounded-full relative inline-flex">
                                 <i class="fa-solid fa-cart-shopping my-auto"></i>
                             </div>
-                            <div class="bg-yellow-300 hover:bg-yellow-400 text-slate-800 hover:text-yellow-50 p-7 shadow-xl aspect-square text-xl flex items-center justify-center rounded-full animate-ping absolute opacity-75 -z-10">
+                            <div class="bg-yellow-300 hover:bg-yellow-400 text-slate-800 hover:text-yellow-50 p-6 md:p-7 shadow-xl aspect-square text-xl flex items-center justify-center rounded-full animate-ping absolute opacity-75 -z-10">
                             </div>
                         </div>
                     </a>

@@ -108,7 +108,7 @@
 
         <!-- cards row 2 -->
         <div class="flex flex-wrap mt-6 -mx-3">
-          <div class="w-full max-w-full px-3 mt-0 lg:w-7/12 lg:flex-none">
+          <div class="w-full max-w-full px-3 mt-0 mb-6 lg:w-7/12 lg:flex-none">
             <div class="border-black/12.5 dark:bg-slate-850 dark:shadow-dark-xl shadow-lg relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-solid bg-white bg-clip-border py-4 border-4 border-slate-800">
               <div class="flex justify-between p-6 pt-2 pb-0">
                 <div class="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid">
@@ -180,23 +180,23 @@
                     </ul>
 
                     <!-- Tabel Containers -->
-                    <div class="mt-6">
+                    <div class="mt-6 overflow-x-auto">
                         <!-- Tabel Feedback -->
                         <div x-show="tab === 'feedback'">
                             <table class="min-w-full bg-white">
                                 <thead>
-                                    <tr>
-                                        <th class="py-2 px-4 bg-slate-100 font-bold text-sm text-gray-600 border-b border-gray-300">User</th>
-                                        <th class="py-2 px-4 bg-slate-100 font-bold text-sm text-gray-600 border-b border-gray-300">Feedback</th>
-                                        <th class="py-2 px-4 bg-slate-100 font-bold text-sm text-gray-600 border-b border-gray-300">Created At</th>
+                                    <tr class="">
+                                        <th class="py-2 px-4 bg-slate-100 font-bold text-start text-sm text-gray-600 border-b border-gray-300">User</th>
+                                        <th class="py-2 px-4 bg-slate-100 font-bold text-start text-sm text-gray-600 border-b border-gray-300">Feedback</th>
+                                        <th class="py-2 px-4 bg-slate-100 font-bold text-start text-sm text-gray-600 border-b border-gray-300">Created At</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($feedbacks as $feedback)
                                     <tr class="text-sm">
-                                        <td class="py-2 px-4 border-b border-gray-300">{{ $feedback->user->name }}</td>
-                                        <td class="py-2 px-4 border-b border-gray-300">{{ $feedback->message }}</td>
-                                        <td class="py-2 px-4 border-b border-gray-300">{{ $feedback->created_at->format('d M Y') }}</td>
+                                        <td class="py-3 px-3 border-b border-gray-300">{{ $feedback->user->name }}</td>
+                                        <td class="py-3 px-3 border-b border-gray-300">{{ $feedback->message }}</td>
+                                        <td class="py-3 px-3 border-b border-gray-300">{{ $feedback->created_at->format('d M Y') }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -209,9 +209,9 @@
                                 <thead>
                                     <tr>
                                         <th class="py-2 px-3 bg-slate-100 text-start font-bold text-sm text-gray-600 border-b border-gray-300">Product</th>
-                                        <th class="py-2 px-3 bg-slate-100 text-center font-bold text-sm text-gray-600 border-b border-gray-300">User</th>
-                                        <th class="py-2 px-3 bg-slate-100 font-bold text-sm text-gray-600 border-b border-gray-300">Rating</th>
-                                        <th class="py-2 px-3 bg-slate-100 font-bold text-sm text-gray-600 border-b border-gray-300">Created At</th>
+                                        <th class="py-2 px-3 bg-slate-100 text-start font-bold text-sm text-gray-600 border-b border-gray-300">User</th>
+                                        <th class="py-2 px-3 bg-slate-100 text-start font-bold text-sm text-gray-600 border-b border-gray-300">Rating</th>
+                                        <th class="py-2 px-3 bg-slate-100 text-start font-bold text-sm text-gray-600 border-b border-gray-300">Created At</th>
                                     </tr>
                                 </thead>
                                 <tbody>

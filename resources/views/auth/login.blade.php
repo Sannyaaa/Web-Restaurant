@@ -17,7 +17,7 @@
                   </div>
               </div>
           </div>
-          <div class="flex flex-col w-full px-16 mx-auto lg:mx-0 shrink-0 md:flex-0 md:w-7/12 lg:w-5/12 xl:w-5/12">
+          <div class="flex flex-col w-full px-4 sm:px-16 mx-auto lg:mx-0 shrink-0 md:flex-0 md:w-7/12 lg:w-5/12 xl:w-5/12">
             <div class="relative flex align-middle flex-col min-w-0 break-words bg-transparent border-0 shadow-none lg:py4 dark:bg-gray-950 rounded-2xl bg-clip-border">
               <div class="p-6 pb-0 mb-0">
                 <h4 class="font-bold text-4xl mb-2 text-slate-800">Login</h4>
@@ -70,7 +70,7 @@
                   </button>
                 </form> --}}
                 <br>
-                <span class="mx-auto mb-6 leading-normal text-sm">Don't have an account? <a href="{{ route('register') }}" class="font-semibold text-transparent bg-clip-text bg-gradient-to-tl from-blue-500 to-violet-500 hover:underline">Sign up</a></span>
+                <span class="mx-auto mb-6 leading-normal text-sm">Don't have an account? <a href="{{ route('register') }}" class="font-semibold text-transparent bg-clip-text bg-gradient-to-tl from-yellow-500 to-yellow-500 hover:underline">Sign up</a></span>
                 <br>
                 <a href="{{ route('index') }}" class="text-slate-500 hover:underline text-sm">Back Home</a>
               </div>

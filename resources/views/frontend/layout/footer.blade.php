@@ -89,8 +89,15 @@
                 </div>
             </div>
         </div>
-        <p class="mt-8 text-xs text-zinc-200">
-            © 2024 by Sannyaa Works
-        </p>
+        <div class="w-full max-w-full px-3 mt-12 shrink-0 lg:mb-0 lg:w-1/2 lg:flex-none">
+            <div class="text-sm leading-normal text-center text-slate-200 lg:text-left">
+                Copyright ©
+                <script>
+                document.write(new Date().getFullYear() + ",");
+                </script>
+                made with <i class="fa fa-heart"></i> by
+                <a href="https://www.creative-tim.com" class="font-semibold text-slate-300 dark:text-white" target="_blank">Sannyaa Works</a>
+            </div>
+        </div>
     </div>
 </footer>

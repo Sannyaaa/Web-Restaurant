@@ -5,8 +5,8 @@
 @section('content')
     <div class="">
         <div class="relative isolate px-6 lg:px-8">
-            <div class="text-center py-12">
-                <h1 class="text-6xl font-bold font-one text-gray-900">Detail Menu</h1>
+            <div class="text-center py-6 md:py-12">
+                <h1 class="text-5xl sm:text-6xl font-bold font-one text-gray-900">Detail Menu</h1>
                 <p class="text-sm text-gray-600">Discover our latest and greatest products.</p>
             </div>
             <div class="w-full">
@@ -103,7 +103,7 @@
             </div>
         </div>
         <div class="font-sans">
-            <div class="p-4 lg:max-w-7xl flex justify-between mx-auto gap-10">
+            <div class="py-4 px-6 lg:max-w-7xl flex justify-between mx-auto gap-10">
                 {{-- <div class="w-2/5">
                     <h3 class="text-2xl font-bold text-gray-800">Reviews(10)</h3>
                     <div class="space-y-3 mt-4">
@@ -170,7 +170,7 @@
 
                     <button type="button" class="w-full mt-8 px-6 py-2.5 border border-blue-600 bg-transparent text-gray-800 text-sm font-semibold rounded-md">Read all reviews</button>
                 </div> --}}
-                <section class="bg-white dark:bg-gray-900 antialiased w-3/5 mx-auto flex justify-end">
+                <section class="bg-white dark:bg-gray-900 antialiased md:w-3/5 mx-auto flex justify-end">
                     <div class="w-full">
                         <div class="flex justify-between items-center mb-6">
                             <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Review ({{ count($reviews) }})</h2>
@@ -192,8 +192,8 @@
                             <article class="p-6 text-base rounded-lg shadow-lg border dark:bg-gray-900 mb-8">
                                 <footer class="flex justify-between items-center mb-2">
                                     <div class="flex items-center">
-                                        @if (Auth::user()->avatar)
-                                            <img class="w-8 h-8 rounded-full" src="{{ Storage::url(Auth::user()->avatar) }}" alt="user photo">
+                                        @if ($review->user->avatar)
+                                            <img class="w-8 h-8 rounded-full" src="{{ Storage::url($review->user->avatar) }}" alt="user photo">
                                         @else
                                             <div class="w-8 h-8 rounded-full flex items-center justify-center text-slate-800">
                                                 <i class="fa-solid fa-user my-auto"></i>
@@ -265,7 +265,7 @@
                                 </div>
                             </article>
                         @empty
-                            
+                            <div>Belum ada review</div>
                         @endforelse
 
                         {{-- <article class="p-6 mb-3 ml-6 lg:ml-12 text-base bg-white rounded-lg dark:bg-gray-900">

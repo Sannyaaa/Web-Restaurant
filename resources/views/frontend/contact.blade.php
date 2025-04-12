@@ -6,24 +6,27 @@
     <div class="bg-zinc-100 bg-cover h-full" style="background-image: url('{{ asset('assets/img/camille-chen.jpg') }}')">
         <div class="relative isolate">
             <div class="w-full text-center py-28 sm:py-32 lg:py-36 px-14 sm:px-24 md:px-40 text-white bg-yellow-700 bg-opacity-40">
-                <h1 class="text-7xl font-bold tracking-tight sm:text-7xl font-one">Contact Us</h1>
+                <h1 class="text-6xl sm:text-7xl font-bold tracking-tight sm:text-7xl font-one">Contact Us</h1>
 
-                <p class="mt-6 text-lg leading-8 w-1/2 mx-auto">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
+                <p class="mt-6 text-lg leading-8 w-10/12 md:w-1/2 mx-auto">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
             </div>
         </div>
     </div>
 
     <div class="bg-zinc-50">
-        <div class="py-24 px-20 md:px-36">
+        <div class="py-24 px-10 sm:px-20 md:px-36">
             <div class="">
-                <div class=" max-w-7xl mx-auto flex-row-reverse lg:flex gap-10 rounded-xl border-slate-800">
+                <div class=" max-w-7xl mx-auto lg:flex gap-10 rounded-xl border-slate-800">
+                    <div class="w-full lg:max-w-4/5 py-auto">
+                        <img src="{{ asset('assets/img/Contact us-bro (1).png') }}" class="my-auto" alt="">
+                    </div>
                     <div class="w-full lg:max-w-1/5">
-                        <h2 class="text-4xl font-bold tracking-tight text-slate-800 sm:text-5xl font-one text-center mb-5">Send Your <span class="text-yellow-300">Feeling</span></h2>
+                        <h2 class="text-5xl font-bold tracking-tight text-slate-800 sm:text-6xl font-one text-center mb-5">Send Your <span class="text-yellow-300">Feeling</span></h2>
                         <form action="{{ route('feedback.store') }}" method="POST">
                             @csrf
                             @method('POST')
-                            <div class="mt-4 flex w-full gap-4">
-                                <div class="w-full md:w-1/2 text-base font-medium">
+                            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 w-full gap-4">
+                                <div class=" text-base font-medium">
                                     <label for="name">Your Name <span class="text-rose-500">*</span></label>
                                     <div class="w-full">
                                         <input type="text" name="name" id="name" class="h-10 border-4 border-slate-800 mt-1 rounded-md py-5 px-4 w-full bg-zinc-50" value="" placeholder="your name" />
@@ -36,7 +39,7 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="w-full md:w-1/2 text-base font-medium">
+                                <div class=" text-base font-medium">
                                     <label for="phone">Your Phone <span class="text-rose-500">*</span></label>
                                     <div class="w-full">
                                         <input type="text" name="phone" id="phone" class="h-10 border-4 border-slate-800 mt-1 rounded-md py-5 px-4 w-full bg-zinc-50" value="" placeholder="your phone" />
@@ -111,9 +114,6 @@
                                 @endif --}}
                             </div>
                         </form>
-                    </div>
-                    <div class="w-full lg:max-w-4/5 py-auto">
-                        <img src="{{ asset('assets/img/Contact us-bro (1).png') }}" class="my-auto" alt="">
                     </div>
                 </div>
             </div>

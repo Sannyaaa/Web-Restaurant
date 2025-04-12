@@ -8,8 +8,8 @@
 
 @section('content')
     <section class="bg-zinc-50 antialiased dark:bg-gray-900  py-16">
-        <div class="mx-auto max-w-screen-xl px-10 2xl:px-0">
-            <h2 class="font-semibold text-gray-900 dark:text-white text-5xl font-one">Shopping Cart</h2>
+        <div class="mx-auto max-w-screen-xl px-5 sm:px-10 2xl:px-0">
+            <h2 class="font-semibold text-gray-900 dark:text-white text-4xl sm:text-5xl font-one">Shopping Cart</h2>
 
             <div class="mt-6 sm:mt-8 md:gap-6 lg:flex lg:items-start xl:gap-8">
                 <div class="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl space-y-6">
@@ -31,7 +31,7 @@
                                     <div class="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
                                         <!-- Item Image and Details -->
                                         <a href="{{ route('detail-menu', $cart['id']) }}" class="shrink-0 md:order-1">
-                                            <div class=" h-32 w-40 overflow-hidden">
+                                            <div class="w-full h-40 sm:h-32 sm:w-40 overflow-hidden">
                                                 <img class="w-full h-full object-cover object-center dark:hidden" src="{{ Storage::url($cart['image']) }}" alt="menu image" />
                                             </div>
                                             <img class="hidden dark:block" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg" alt="menu image" />
@@ -219,7 +219,7 @@
                             </div>
                         @endforeach
                     @else
-                        <span>Belum ada menu di keranjangmu. <a class="hover:underline text-yellow-400" href="{{ route('list-menu') }}">Explore Our Menu</a></span>    
+                        <span>Belum ada menu di keranjangmu. <a class="hover:underline text-yellow-300" href="{{ route('list-menu') }}">Explore Our Menu</a></span>    
                     @endif
 
 

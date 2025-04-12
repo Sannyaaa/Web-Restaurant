@@ -192,15 +192,15 @@
         </a>
       </li>
 
-      <li class="mt-0.5 w-full">
+      <li class="mt-0.5 w-full px-2 py-3">
         <form action="{{ route('logout') }}" method="POST">
           @csrf
-          <button type="submit" class=" dark:text-white dark:opacity-80  text-base ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors {{ request()->routeIs('logout') ? 'bg-yellow-100 font-semibold text-slate-600 rounded-lg py-3' : 'py-2' }}" href="">
-            <div class="mr-2 flex h-8 w-8 items-center ite justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+          <button type="submit" class="dark:text-white dark:opacity-80 bg-slate-800 text-slate-100 rounded-lg w-full text-base ease-nav-brand my-0 flex items-center whitespace-nowrap px-4 transition-colors {{ request()->routeIs('logout') ? 'bg-yellow-100 font-semibold text-slate-100 rounded-lg py-3' : 'py-3' }}" href="">
+            <div class=" flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
               {{-- <i class="fa-solid fa-right-from-bracket"></i> --}}
               <i class="fa-solid fa-arrow-right-from-bracket"></i>
             </div>
-            <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Logout</span>
+            <span class="ml-1 font-medium duration-300 opacity-100 pointer-events-none ease">Logout</span>
           </button>
         </form>
       </li>

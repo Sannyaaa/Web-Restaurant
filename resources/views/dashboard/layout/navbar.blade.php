@@ -1,8 +1,8 @@
 <!-- Navbar -->
-      <nav class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start" navbar-main navbar-scroll="false">
-        <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
+      <nav class="relative flex flex-wrap items-center justify-between px-2 py-2 sm:px-6 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start" navbar-main navbar-scroll="false">
+        <div class="flex items-center justify-between w-full px-4 py-3 mx-auto flex-wrap-inherit">
 
-          <div class="gap-3 flex items-center mt-2">
+          <div class="gap-3 flex items-center">
             <!-- Tombol Toggle -->
             <button id="sidebarToggle" class="text-gray-500 dark:text-white xl:hidden">
                 <i class="fas fa-bars"></i>
@@ -149,7 +149,7 @@
             </div>
           <div class="flex items-center lg:order-2">
               <!-- Notifications -->
-              <button type="button" data-dropdown-toggle="notification-dropdown" class="p-2 mr-1 text-slate-800 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600">
+              <button type="button" data-dropdown-toggle="notification-dropdown" class="hidden sm:block p-2 mr-1 text-slate-800 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600">
                   <span class="sr-only">View notifications</span>
                   <!-- Bell icon -->
                   <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 20"><path d="M12.133 10.632v-1.8A5.406 5.406 0 0 0 7.979 3.57.946.946 0 0 0 8 3.464V1.1a1 1 0 0 0-2 0v2.364a.946.946 0 0 0 .021.106 5.406 5.406 0 0 0-4.154 5.262v1.8C1.867 13.018 0 13.614 0 14.807 0 15.4 0 16 .538 16h12.924C14 16 14 15.4 14 14.807c0-1.193-1.867-1.789-1.867-4.175ZM3.823 17a3.453 3.453 0 0 0 6.354 0H3.823Z"/></svg>
@@ -228,14 +228,14 @@
                       </div>
                   </a>
               </div>
-              <span class="text-slate-800 font-semibold text-lg">{{ Auth::user()->name }}</span>
+              <span class="hidden sm:block text-slate-800 font-semibold text-lg">{{ Auth::user()->name }}</span>
               <a href="{{ route('profile') }}">
                 <button type="button" class="flex mx-3 text-sm border-4 border-slate-800 bg-gray-50 rounded-full md:mr-0 focus:ring-2 focus:ring-slate-600 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
                     <span class="sr-only">Open user menu</span>
                     @if (Auth::user()->avatar)
-                      <img class="w-10 h-10 rounded-full" src="{{ Storage::url(Auth::user()->avatar) }}" alt="user photo">
+                      <img class="w-8 h-8 sm:w-10 sm:h-10 rounded-full" src="{{ Storage::url(Auth::user()->avatar) }}" alt="user photo">
                     @else
-                      <div class="w-10 h-10 rounded-full flex items-center justify-center text-slate-800">
+                      <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-slate-800">
                         <i class="fa-solid fa-user my-auto"></i>
                       </div>
                     @endif

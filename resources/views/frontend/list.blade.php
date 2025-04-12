@@ -8,8 +8,8 @@
             <div class="w-full flex py-24 sm:py-28 lg:py-32 px-0 md:px-32">
                 <div class="w-full">
                     <div class="flex flex-col text-center items-center justify-center">
-                        <h1 class="text-6xl font-bold tracking-tight text-slate-50 md:text-7xl font-one">Explore Our Menu</h1>
-                        <div class=" lg:w-1/2 mt-5">
+                        <h1 class="text-5xl font-bold tracking-tight text-slate-50 md:text-6xl lg:text-7xl font-one">Explore Our Menu</h1>
+                        <div class="w-full lg:w-4/5 max-w-2xl mt-5">
                             <form action="{{ route('list-menu') }}" method="GET" class="mx-auto flex gap-4">
                                 <!-- component -->
                                 <div class="flex flex-col p-2 py-6 m-h-screen w-full">
@@ -37,25 +37,25 @@
 
     <div class="bg-zinc-50">
         <div class="py-20">
-            <div class="flex flex-col justify-center px-10 md:px-32 xl:px-64">
+            <div class="flex flex-col justify-center sm:px-10 md:px-32 xl:px-64">
                 {{-- <h1 class="text-5xl font-bold tracking-tight text-slate-800 mb-4 md:text-6xl font-one">Explore Our Menu</h1> --}}
                 <div class="w-full flex flex-wrap justify-center">
                     <!-- Menampilkan Kategori -->
                     <div class="p-3 md:p-4 max-w-sm bg-opacity-100">
                         <a href="{{ route('list-menu') }}" class="flex flex-col justify-center items-center">
                             <div class="rounded-full border-8 {{ empty($selectedCategory) ? 'border-slate-800' : 'border-yellow-200' }}  group-hover:border-yellow-100 overflow-hidden shadow-lg hover:shadow-2xl">
-                                <div class="h-28 w-28 flex items-center bg-slate-100 justify-center font-semibold">ALL</div>
+                                <div class=" w-16 sm:w-20 md:w-28 h-auto aspect-square flex items-center bg-slate-100 justify-center font-semibold">ALL</div>
                             </div>
-                            <span class="text-base font-semibold px-6 py-3  rounded-full {{ empty($selectedCategory) ? 'bg-slate-800 text-white' : 'bg-white' }} -mt-8 shadow-lg hover:shadow-2xl transition-all">All</span>
+                            <span class="text-sm md:text-lg font-semibold px-4 md:px-6 py-2 md:py-3 rounded-full {{ empty($selectedCategory) ? 'bg-slate-800 text-white' : 'bg-white' }} -mt-8 shadow-lg hover:shadow-2xl transition-all">All</span>
                         </a>
                     </div>
                     @forelse ($categories as $category)
-                        <div class="p-3 md:p-4 bg-opacity-100">
+                        <div class="p-2 md:p-4 bg-opacity-100">
                             <a href="{{ route('list-menu-category',$category->id) }}" class="flex flex-col justify-center items-center">
                                 <div class="rounded-full border-8 {{ isset($selectedCategory) && $selectedCategory->id == $category->id ? 'border-slate-800' : 'border-yellow-200' }}  group-hover:border-yellow-100 overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-                                    <img class="w-28 h-auto aspect-square" src="{{ Storage::url($category->image) }}" alt="category image" />
+                                    <img class=" w-16 sm:w-20 md:w-28 h-auto aspect-square" src="{{ Storage::url($category->image) }}" alt="category image" />
                                 </div>
-                                <span class="text-base font-semibold px-6 py-3 rounded-full {{ isset($selectedCategory) && $selectedCategory->id == $category->id ? 'bg-slate-800 text-white' : 'bg-white' }} -mt-8 shadow-lg hover:shadow-2xl transition-all">{{ $category->name }}</span>
+                                <span class="text-sm md:text-lg font-semibold px-4 md:px-6 py-2 md:py-3 rounded-full capitalize {{ isset($selectedCategory) && $selectedCategory->id == $category->id ? 'bg-slate-800 text-white' : 'bg-white' }} -mt-8 shadow-lg hover:shadow-2xl transition-all">{{ $category->name }}</span>
                             </a>
                         </div>
                     @empty
@@ -66,19 +66,19 @@
                 </div>
             </div>
 
-            <div class="mt-8 px-0 md:px-16 lg:px-32">
-                <div class="w-full flex flex-wrap justify-center">
+            <div class="mt-8 px-4 sm:px-8 md:px-16 lg:px-32">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
                     <!-- Menampilkan Menu -->
                     @forelse ($menus as $menu)
-                        <div class="p-3 md:p-4 max-w-sm sm:max-w-xs lg:max-w-sm">
+                        <div class="p-3 md:p-4 max-w-md md:max-w-xl mx-auto">
                             <a href="{{ route('detail-menu',$menu->id) }}">
-                                <div class="w-full bg-white group border-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 dark:bg-gray-800 dark:border-gray-700 overflow-hidden">
+                                <div class="w-full bg-white group border-slate-800 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 dark:bg-gray-800 dark:border-gray-700 overflow-hidden">
                                     <div class="relative aspect-video overflow-hidden bg-cover align-middle p-2">
                                         <img class="object-cover object-center w-full h-full rounded-md" src="{{ Storage::url($menu->image) }}" alt="menu image" />
                                     </div>
-                                    <div class="px-5 py-5">
+                                    <div class="p-2 md:p-3 lg:p-5">
                                         <div>
-                                            <h5 class="text-xl font-semibold hover:underline text-gray-900 dark:text-white">{{ $menu->name }} </h5>
+                                            <h5 class="text-base md:text-lg lg:text-xl font-semibold hover:underline text-gray-900 dark:text-white">{{ $menu->name }} </h5>
                                             <div class="text-sm text-gray-600 dark:text-gray-400">{!! Str::limit($menu->description,60) !!}...</div>
                                         </div>
                                         <div class="flex items-center justify-between mt-2.5 mb-2">
@@ -103,7 +103,7 @@
                                             <span class="text-sm font-normal text-slate-400 italic">Category : {{ $menu->category->name }}</span>
                                             <span class="text-2xl font-bold text-gray-900 dark:text-white">Rp.{{ number_format($menu->price) }}</span>
                                         </div>
-                                        <div class="flex items-center justify-between w-full font-semibold text-base space-x-4">
+                                        <div class="flex sm:block md:flex items-center justify-between w-full font-semibold text-base space-x-4">
                                             <div class="flex w-full">
                                                 <button class="w-full py-3 bg-yellow-300 hover:bg-yellow-400 font-semibold text-base rounded-xl text-yellow-900">See More</button>
                                             </div>
@@ -112,7 +112,7 @@
                                                 <input type="hidden" name="menu_id" value="{{ $menu->id }}"> 
                                                 <input type="hidden" name="quantity" value="1"> 
                                                 <button type="submit" class="add-to-cart-btn"> 
-                                                    <div class="bg-slate-800 hover:bg-slate-900 text-yellow-50 p-4 text-base flex items-center justify-center rounded-xl"> 
+                                                    <div class="bg-slate-800 hover:bg-slate-900 text-yellow-50 w-full p-4 text-base flex items-center justify-center rounded-xl"> 
                                                         <i class="fa-solid fa-cart-shopping my-auto"></i> 
                                                     </div> 
                                                 </button> 

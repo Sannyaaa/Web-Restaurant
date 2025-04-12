@@ -17,7 +17,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-col w-full px-16 bg-zinc-50 max-w-full mx-auto lg:mx-0 shrink-0 md:flex-0 md:w-7/12 lg:w-5/12 xl:w-5/12">
+                <div class="flex flex-col w-full px-4 sm:px-16 bg-zinc-50 max-w-full mx-auto lg:mx-0 shrink-0 md:flex-0 md:w-7/12 lg:w-5/12 xl:w-5/12">
                     <div class="relative flex flex-col min-w-0 break-words border-0 shadow-none lg:py4 dark:bg-gray-950 rounded-2xl bg-clip-border">
                     <div class="p-6 pb-0 mb-0">
                         <h4 class="font-bold text-4xl mb-2 text-slate-800">Register</h4>
@@ -55,7 +55,7 @@
                             <input type="password" name="password_confirmation" placeholder="Password Confirm" class="focus:shadow-primary-outline dark:bg-gray-950 dark:placeholder:text-white/80 dark:text-white/80 text-sm leading-5.6 ease block w-full appearance-none rounded-lg border-4 border-solid border-slate-800 bg-white bg-clip-padding p-3 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-slate-900 focus:outline-none" />
                         </div>
                         <div class="flex items-center pl-12 mb-0.5 text-left min-h-6">
-                            <input id="rememberMe" class="mt-0.5 rounded-10 duration-250 ease-in-out after:rounded-circle after:shadow-2xl after:duration-250 checked:after:translate-x-5.3 h-5 relative float-left -ml-12 w-10 cursor-pointer appearance-none border border-solid border-gray-200 bg-zinc-700/10 bg-none bg-contain bg-left bg-no-repeat align-top transition-all after:absolute after:top-px after:h-4 after:w-4 after:translate-x-px after:bg-white after:content-[''] checked:border-blue-500/95 checked:bg-blue-500/95 checked:bg-none checked:bg-right" type="checkbox" />
+                            <input id="rememberMe" class="mt-0.5 rounded-10 duration-250 ease-in-out after:rounded-circle after:shadow-2xl after:duration-250 checked:after:translate-x-5.3 h-5 relative float-left -ml-12 w-10 cursor-pointer appearance-none border border-solid border-gray-200 bg-zinc-700/10 bg-none bg-contain bg-left bg-no-repeat align-top transition-all after:absolute after:top-px after:h-4 after:w-4 after:translate-x-px after:bg-white after:content-[''] checked:border-yellow-400/95 checked:bg-yellow-400/95 checked:bg-none checked:bg-right" type="checkbox" />
                             <label class="ml-2 font-normal cursor-pointer select-none text-sm text-slate-700" for="rememberMe">Remember me</label>
                         </div>
                         <div class="text-center">
@@ -67,7 +67,7 @@
                         </form>
                     </div>
                     <div class="border-black/12.5 rounded-b-2xl border-t-0 border-solid p-6 text-center pt-0 px-1 sm:px-6">
-                        <span class="mx-auto mb-6 leading-normal text-sm">Have an account yet? <a href="{{ route('login') }}" class="font-semibold text-transparent bg-clip-text bg-gradient-to-tl from-blue-500 to-violet-500">Sign in</a></span>
+                        <span class="mx-auto mb-6 leading-normal text-sm">Have an account yet? <a href="{{ route('login') }}" class="font-semibold text-transparent bg-clip-text bg-gradient-to-tl from-yellow-500 to-yellow-500">Sign in</a></span>
                         <br>
                         <a href="{{ route('index') }}" class="text-slate-500 hover:underline text-sm">Back Home</a>
                     </div>
