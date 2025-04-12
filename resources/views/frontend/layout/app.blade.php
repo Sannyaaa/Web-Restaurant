@@ -27,7 +27,7 @@
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
 
-        @vite('assets/css/app.css')
+        @vite(['resources/css/app.css','resources/js/app.js'])
 
         @stack('style')
 
